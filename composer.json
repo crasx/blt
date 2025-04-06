@@ -1,6 +1,6 @@
 {
-    "name": "acquia/blt",
-    "description": "BLT",
+    "name": "crasx/blt",
+    "description": "Acquia BLT Fork",
     "license": "GPL-2.0-only",
     "type": "composer-plugin",
     "keywords": [
@@ -15,8 +15,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/acquia/blt/issues",
-        "docs": "https://docs.acquia.com/blt/"
+        "issues": "https://github.com/crasx/blt/issues"
     },
     "require": {
         "php": ">=8.1",
