@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Common;
+namespace Crasx\Blt\Robo\Common;
 
-use Acquia\Blt\Robo\Config\ConfigInitializer;
+use Crasx\Blt\Robo\Config\ConfigInitializer;
 use Acquia\DrupalEnvironmentDetector\AcquiaDrupalEnvironmentDetector;
 use loophp\phposinfo\Enum\FamilyName;
 use loophp\phposinfo\OsInfo;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\ArgvInput;
 /**
  * Attempts to detect various properties about the current hosting environment.
  *
- * @package Acquia\Blt\Robo\Common
+ * @package Crasx\Blt\Robo\Common
  */
 class EnvironmentDetector extends AcquiaDrupalEnvironmentDetector {
 

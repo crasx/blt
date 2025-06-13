@@ -2,7 +2,7 @@
 
 namespace Example\Blt\Plugin\Commands;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 
 /**

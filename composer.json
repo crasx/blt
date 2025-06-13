@@ -11,6 +11,9 @@
     ],
     "authors": [
         {
+            "name": "Matthew Ramir"
+        },
+        {
             "name": "Matthew Grasmick"
         }
     ],
@@ -44,6 +47,10 @@
     "require-dev": {
         "acquia/coding-standards": "^1.0",
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+        "mglaman/phpstan-drupal": "^2.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
         "squizlabs/php_codesniffer": "^3.6"
     },
     "conflict": {
@@ -56,9 +63,9 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acquia\\Blt\\": "src/",
-            "Acquia\\Blt\\Tests\\": "tests/phpunit/src/",
-            "Acquia\\Blt\\Tests\\Robo\\": "tests/phpunit/Robo/"
+            "Crasx\\Blt\\": "src/",
+            "Crasx\\Blt\\Tests\\": "tests/phpunit/src/",
+            "Crasx\\Blt\\Tests\\Robo\\": "tests/phpunit/Robo/"
         }
     },
     "bin": [
@@ -68,11 +75,8 @@
     "config": {
         "allow-plugins": {
             "acquia/drupal-recommended-settings": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        },
-        "php": "8",
-        "platform": {
-            "php": "8.1"
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
@@ -81,7 +85,7 @@
             "10.x-dev": "10.0.x-dev",
             "dev-main": "14.x-dev"
         },
-        "class": "Acquia\\Blt\\Composer\\Plugin",
+        "class": "Crasx\\Blt\\Composer\\Plugin",
         "phpcodesniffer-search-depth": "4"
     }
 }

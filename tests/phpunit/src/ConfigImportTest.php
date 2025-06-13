@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
-use Acquia\Blt\Robo\Commands\Drupal\ConfigCommand;
-use Acquia\Blt\Robo\Inspector\Inspector;
-use Acquia\Blt\Robo\Tasks\DrushTask;
+use Crasx\Blt\Robo\Commands\Drupal\ConfigCommand;
+use Crasx\Blt\Robo\Inspector\Inspector;
+use Crasx\Blt\Robo\Tasks\DrushTask;
 use Robo\Result;
 
 /**

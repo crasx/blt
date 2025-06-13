@@ -1,0 +1,19 @@
+# phpstan.neon
+parameters:
+    # Specifies the rule level. Level 5 is a good starting point for real-world applications.
+    # Level 2 is the minimum to start finding undefined method calls, a common source of bugs.
+    level: 5
+
+    # Paths to be analysed.
+    # You should adjust these paths to match the directory structure of your Acquia BLT fork.
+    # Typically, you'll want to scan your custom code and BLT's own source code if you've modified it.
+    paths:
+        - src
+        # - tests
+        # Add any other directories containing your custom PHP code.
+
+    # Exclude paths from analysis.
+    excludePaths:
+        - '*/vendor/*'
+        - '*/node_modules/*'
+

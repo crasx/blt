@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Composer;
+namespace Crasx\Blt\Composer;
 
 use Composer\Composer;
 use Composer\DependencyResolver\Operation\InstallOperation;

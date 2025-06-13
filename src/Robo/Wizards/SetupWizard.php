@@ -1,11 +1,11 @@
 <?php
 
-namespace Acquia\Blt\Robo\Wizards;
+namespace Crasx\Blt\Robo\Wizards;
 
 /**
  * Wizard for generating setup files.
  *
- * @package Acquia\Blt\Robo\Wizards
+ * @package Crasx\Blt\Robo\Wizards
  */
 class SetupWizard extends Wizard {
 

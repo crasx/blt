@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Validate;
+namespace Crasx\Blt\Robo\Commands\Validate;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "validate:yaml:lint:all*" namespace.
@@ -17,7 +17,7 @@ class YamlCommand extends BltTasks {
   public function lintFileSets() {
     $this->say("Validating yaml syntax for all custom modules and exported config...");
 
-    /** @var \Acquia\Blt\Robo\Filesets\FilesetManager $fileset_manager */
+    /** @var \Crasx\Blt\Robo\Filesets\FilesetManager $fileset_manager */
     $fileset_manager = $this->getContainer()->get('filesetManager');
     $fileset_ids = $this->getConfigValue('validate.yaml.filesets');
     $filesets = $fileset_manager->getFilesets($fileset_ids, TRUE);
@@ -39,7 +39,7 @@ class YamlCommand extends BltTasks {
 
     $files = explode("\n", $file_list);
 
-    /** @var \Acquia\Blt\Robo\Filesets\FilesetManager $fileset_manager */
+    /** @var \Crasx\Blt\Robo\Filesets\FilesetManager $fileset_manager */
     $fileset_manager = $this->getContainer()->get('filesetManager');
     $fileset_ids = $this->getConfigValue('validate.yaml.filesets');
     $filesets = $fileset_manager->getFilesets($fileset_ids, TRUE);

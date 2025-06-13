@@ -1,13 +1,13 @@
 <?php
 
-namespace Acquia\Blt\Robo\Tasks;
+namespace Crasx\Blt\Robo\Tasks;
 
 use Robo\Task\Vcs\GitStack;
 
 /**
  * Runs Git tasks using BLT-specific helpers, such as setting the commit author.
  *
- * @package Acquia\Blt\Robo\Tasks
+ * @package Crasx\Blt\Robo\Tasks
  */
 class GitTask extends GitStack {
 

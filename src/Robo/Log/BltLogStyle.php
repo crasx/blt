@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Log;
+namespace Crasx\Blt\Robo\Log;
 
 use Robo\Log\RoboLogStyle;
 

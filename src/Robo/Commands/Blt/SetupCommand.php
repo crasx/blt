@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Blt;
+namespace Crasx\Blt\Robo\Commands\Blt;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "setup:all" namespace.

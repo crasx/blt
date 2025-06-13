@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
-use Acquia\Blt\Robo\Blt;
-use Acquia\Blt\Robo\Common\StringManipulator;
-use Acquia\Blt\Robo\Config\ConfigInitializer;
+use Crasx\Blt\Robo\Blt;
+use Crasx\Blt\Robo\Common\StringManipulator;
+use Crasx\Blt\Robo\Config\ConfigInitializer;
 use PHPUnit\Framework\TestCase;
 use Robo\Robo;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -25,7 +25,7 @@ abstract class BltProjectTestBase extends TestCase {
    */
   protected $sandboxInstance;
   /**
-   * @var \Acquia\Blt\Robo\Config\DefaultConfig
+   * @var \Crasx\Blt\Robo\Config\DefaultConfig
    */
   protected $config = NULL;
   /**
@@ -41,7 +41,7 @@ abstract class BltProjectTestBase extends TestCase {
   protected $dbDump;
 
   /**
-   * @var \Acquia\Blt\Robo\Common\Executor
+   * @var \Crasx\Blt\Robo\Common\Executor
    */
   protected $executor;
 

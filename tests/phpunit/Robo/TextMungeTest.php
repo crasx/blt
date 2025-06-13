@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Tests\Robo;
+namespace Crasx\Blt\Tests\Robo;
 
-use Acquia\Blt\Robo\Common\TextMunge;
+use Crasx\Blt\Robo\Common\TextMunge;
 use PHPUnit\Framework\TestCase;
 
 /**

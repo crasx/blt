@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Inspector;
+namespace Crasx\Blt\Robo\Inspector;
 
 /**
  * Adds getters and setters for $this->inspector.
@@ -10,7 +10,7 @@ trait InspectorAwareTrait {
   /**
    * The inspector.
    *
-   * @var \Acquia\Blt\Robo\Inspector\Inspector
+   * @var \Crasx\Blt\Robo\Inspector\Inspector
    */
   private $inspector;
 
@@ -26,7 +26,7 @@ trait InspectorAwareTrait {
   /**
    * Gets $this->inspector.
    *
-   * @return \Acquia\Blt\Robo\Inspector\Inspector
+   * @return \Crasx\Blt\Robo\Inspector\Inspector
    *   The inspector.
    */
   public function getInspector() {

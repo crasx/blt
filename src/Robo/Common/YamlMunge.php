@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Common;
+namespace Crasx\Blt\Robo\Common;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;

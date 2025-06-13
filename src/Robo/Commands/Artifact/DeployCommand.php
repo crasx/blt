@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Artifact;
+namespace Crasx\Blt\Robo\Commands\Artifact;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Robo\Contract\VerbosityThresholdInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Finder\Finder;
@@ -81,7 +81,7 @@ class DeployCommand extends BltTasks {
    *
    * @hook init
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function initialize() {
     $this->excludeFileTemp = $this->getConfigValue('deploy.exclude_file') . '.tmp';
@@ -105,7 +105,7 @@ class DeployCommand extends BltTasks {
    *
    * @validateGitConfig
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    * @throws \Exception
    */
@@ -155,7 +155,7 @@ class DeployCommand extends BltTasks {
    *
    * @aliases deploy:check-dirty
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    *   Thrown if there are uncommitted changes.
    */
   public function checkDirty(array $options = ['ignore-dirty' => FALSE]) {
@@ -302,7 +302,7 @@ class DeployCommand extends BltTasks {
    * Creates artifact on branch and pushes.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function deployToBranch($options) {
     $this->branchName = $this->getBranchName($options);
@@ -318,7 +318,7 @@ class DeployCommand extends BltTasks {
   /**
    * Deletes the existing deploy directory and initializes git repo.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    */
   protected function prepareDir() {
@@ -351,7 +351,7 @@ class DeployCommand extends BltTasks {
    * Adds remotes from git.remotes to /deploy repository.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function addGitRemotes() {
     $git_remotes = $this->getConfigValue('git.remotes');
@@ -370,7 +370,7 @@ class DeployCommand extends BltTasks {
    *   Remote URL.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function addGitRemote($remote_url) {
     // Generate an md5 sum of the remote URL to use as remote name.
@@ -389,7 +389,7 @@ class DeployCommand extends BltTasks {
    * Checks out a new, local branch for artifact.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function checkoutLocalDeployBranch() {
     $result = $this->taskExecStack()
@@ -405,7 +405,7 @@ class DeployCommand extends BltTasks {
   /**
    * Merges upstream changes into deploy branch.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    */
   protected function mergeUpstreamChanges() {
@@ -455,7 +455,7 @@ class DeployCommand extends BltTasks {
    * @aliases ab deploy:build
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function build() {
     $this->say("Generating build artifact...");
@@ -489,7 +489,7 @@ class DeployCommand extends BltTasks {
    * Copies files from source repo into artifact.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function buildCopy() {
     $exclude_list_file = $this->getExcludeListFile();
@@ -527,7 +527,7 @@ class DeployCommand extends BltTasks {
    *   Bool.
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function composerInstall() {
     if (!$this->getConfigValue('deploy.build-dependencies')) {
@@ -698,7 +698,7 @@ class DeployCommand extends BltTasks {
   /**
    * Creates a commit on the artifact.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function commit() {
     $this->say("Committing artifact to <comment>{$this->branchName}</comment>...");
@@ -727,7 +727,7 @@ class DeployCommand extends BltTasks {
    * @return bool
    *   Bool.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    */
   protected function push($identifier, array $options) {
@@ -758,7 +758,7 @@ class DeployCommand extends BltTasks {
    * @param string $repo
    *   The repo in which a tag should be cut.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function cutTag($repo = 'build') {
     $taskGit = $this->taskGit()
@@ -779,7 +779,7 @@ class DeployCommand extends BltTasks {
   /**
    * Executes artifact:build:simplesamlphp-config command.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function deploySamlConfig() {
     if ($this->getConfigValue('simplesamlphp')) {
@@ -793,7 +793,7 @@ class DeployCommand extends BltTasks {
    * @command artifact:update:drupal
    * @aliases aud deploy:update
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function update() {
     // Disable alias since we are targeting specific uri.
@@ -807,7 +807,7 @@ class DeployCommand extends BltTasks {
    * @command artifact:update:drupal:all-sites
    * @aliases auda
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function updateAll() {
     // Disable alias since we are targeting specific uri.
@@ -824,7 +824,7 @@ class DeployCommand extends BltTasks {
    * @param string $multisite
    *   Multisite.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function updateSite($multisite) {
     $this->switchSiteContext($multisite);
@@ -845,7 +845,7 @@ class DeployCommand extends BltTasks {
    * @command artifact:sync:all-sites
    * @aliases asas
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function syncRefresh() {
     // Disable alias since we are targeting specific uri.

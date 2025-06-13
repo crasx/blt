@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Annotations;
+namespace Crasx\Blt\Annotations;
 
 // Applying coding standards here would break the annotations functionality.
 // @codingStandardsIgnoreStart

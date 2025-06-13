@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
-use Acquia\Blt\Robo\Common\YamlMunge;
+use Crasx\Blt\Robo\Common\YamlMunge;
 
 /**
  * Test frontend commands.

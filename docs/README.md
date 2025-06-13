@@ -62,7 +62,7 @@ composer update acquia/blt -W
 - Update `default.local.settings.php` and `local.settings.php` to use the
   Environment Detector provided by this DSR plugin instead of BLT:
 ```diff
-- use Acquia\Blt\Robo\Common\EnvironmentDetector;
+- use Crasx\Blt\Robo\Common\EnvironmentDetector;
 + use Acquia\Drupal\RecommendedSettings\Helpers\EnvironmentDetector;
 ```
 

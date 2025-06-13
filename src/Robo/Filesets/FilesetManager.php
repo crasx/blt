@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Filesets;
+namespace Crasx\Blt\Robo\Filesets;
 
-use Acquia\Blt\Robo\Config\ConfigAwareTrait;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\Config\ConfigAwareTrait;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\IndexedReader;
 use Psr\Log\LoggerAwareInterface;
@@ -16,7 +16,7 @@ use Robo\Robo;
  *
  * Will load BLT core filesets and custom filesets.
  *
- * @package Acquia\Blt\Robo\Common
+ * @package Crasx\Blt\Robo\Common
  */
 class FilesetManager implements ConfigAwareInterface, LoggerAwareInterface {
 
@@ -79,7 +79,7 @@ class FilesetManager implements ConfigAwareInterface, LoggerAwareInterface {
    * @return array
    *   An array of annotated methods, keyed by fileset id.
    *   Example value:
-   *     [\Acquia\Blt\Robo\Filesets\Filesets::class => [
+   *     [\Crasx\Blt\Robo\Filesets\Filesets::class => [
    *       'files.php.tests' => ['getFilesetPhpTests'],
    *     ]].
    */
@@ -110,7 +110,7 @@ class FilesetManager implements ConfigAwareInterface, LoggerAwareInterface {
     $methods = get_class_methods($class);
     foreach ($methods as $method_name) {
       $reflectionMethod = new \ReflectionMethod($class, $method_name);
-      $annotations = $this->annotationsReader->getMethodAnnotation($reflectionMethod, 'Acquia\Blt\Annotations\Fileset');
+      $annotations = $this->annotationsReader->getMethodAnnotation($reflectionMethod, 'Crasx\Blt\Annotations\Fileset');
       if ($annotations) {
         $filesets[$annotations->id] = $method_name;
       }
@@ -125,7 +125,7 @@ class FilesetManager implements ConfigAwareInterface, LoggerAwareInterface {
    * @return \Symfony\Component\Finder\Finder[]
    *   An array of instantiated filesets.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function getFilesets($fileset_ids = [], $resetFinder = FALSE) {
     if (!$this->filesets || $resetFinder) {

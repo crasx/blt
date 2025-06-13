@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Source;
+namespace Crasx\Blt\Robo\Commands\Source;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\YamlWriter;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\YamlWriter;
+use Crasx\Blt\Robo\Exceptions\BltException;
 
 /**
  * Defines commands for linking packages for development.
@@ -33,7 +33,7 @@ class LinkPackageCommand extends BltTasks {
    *
    * @command source:link-package
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function linkComposer(
     array $options = [

@@ -1,12 +1,12 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Blt;
+namespace Crasx\Blt\Robo\Commands\Blt;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\YamlWriter;
-use Acquia\Blt\Robo\Config\ConfigInitializer;
-use Acquia\Blt\Robo\Exceptions\BltException;
-use Acquia\Blt\Update\Updater;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\YamlWriter;
+use Crasx\Blt\Robo\Config\ConfigInitializer;
+use Crasx\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Update\Updater;
 use Robo\Contract\VerbosityThresholdInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Filesystem\Filesystem;
@@ -20,7 +20,7 @@ class UpdateCommand extends BltTasks {
   /**
    * Updater.
    *
-   * @var \Acquia\Blt\Update\Updater
+   * @var \Crasx\Blt\Update\Updater
    */
   protected $updater;
 
@@ -48,7 +48,7 @@ class UpdateCommand extends BltTasks {
    *
    * @hidden
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function addToProject() {
     // Initializes the project template / scaffold.
@@ -106,7 +106,7 @@ class UpdateCommand extends BltTasks {
    *
    * @aliases bu update
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function update(array $options = ['since' => InputOption::VALUE_REQUIRED]) {
     $starting_version = $options['since'] ?: $this->currentSchemaVersion;
@@ -206,7 +206,7 @@ class UpdateCommand extends BltTasks {
    *   TRUE if updates were successfully executed.
    */
   protected function executeSchemaUpdates($starting_version) {
-    $updater = new Updater('Acquia\Blt\Update\Updates', $this->getConfigValue('repo.root'));
+    $updater = new Updater('Crasx\Blt\Update\Updates', $this->getConfigValue('repo.root'));
     $updates = $updater->getUpdates($starting_version);
     if ($updates) {
       $this->say("<comment>The following BLT updates are outstanding:</comment>");

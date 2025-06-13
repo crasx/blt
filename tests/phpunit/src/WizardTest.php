@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
 use Symfony\Component\Yaml\Yaml;
 

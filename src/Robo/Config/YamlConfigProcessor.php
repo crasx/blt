@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Config;
+namespace Crasx\Blt\Robo\Config;
 
-use Acquia\Blt\Robo\Common\ArrayManipulator;
+use Crasx\Blt\Robo\Common\ArrayManipulator;
 use Consolidation\Config\Loader\ConfigProcessor;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Recipes;
+namespace Crasx\Blt\Robo\Commands\Recipes;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "recipes:scaffold:*" namespace.

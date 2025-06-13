@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Common;
+namespace Crasx\Blt\Robo\Common;
 
 use Consolidation\Comments\Comments;
 use Symfony\Component\Yaml\Yaml;
@@ -8,7 +8,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Reads and writes to YAML files in a friendly and consistent way.
  *
- * @package Acquia\Blt\Robo\Common
+ * @package Crasx\Blt\Robo\Common
  *
  * Preserves comments when possible.
  */

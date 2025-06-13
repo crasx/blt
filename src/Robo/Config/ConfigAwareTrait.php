@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Config;
+namespace Crasx\Blt\Robo\Config;
 
 use Robo\Common\ConfigAwareTrait as RoboConfigAwareTrait;
 

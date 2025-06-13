@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Blt;
+namespace Crasx\Blt\Robo\Commands\Blt;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 
@@ -46,7 +46,7 @@ DRS_WARNING,
       'file' => 'settings.php',
     ],
     [
-      'search' => 'use Acquia\Blt\Robo\Common\EnvironmentDetector;',
+      'search' => 'use Crasx\Blt\Robo\Common\EnvironmentDetector;',
       'replace' => 'use Acquia\Drupal\RecommendedSettings\Helpers\EnvironmentDetector;',
       'file' => 'settings.php',
     ],

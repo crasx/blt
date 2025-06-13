@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Update;
+namespace Crasx\Blt\Update;
 
-use Acquia\Blt\Robo\Common\YamlMunge;
+use Crasx\Blt\Robo\Common\YamlMunge;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\IndexedReader;
 use Symfony\Component\Console\Formatter\OutputFormatter;
@@ -219,7 +219,7 @@ class Updater {
   /**
    * Executes an array of updates.
    *
-   * @param \Acquia\Blt\Annotations\Update[] $updates
+   * @param \Crasx\Blt\Annotations\Update[] $updates
    *   List of updates.
    */
   public function executeUpdates(array $updates) {
@@ -236,7 +236,7 @@ class Updater {
   /**
    * Prints a human-readable list of update methods to the screen.
    *
-   * @param \Acquia\Blt\Annotations\Update[] $updates
+   * @param \Crasx\Blt\Annotations\Update[] $updates
    *   List of updates.
    */
   public function printUpdates(array $updates) {
@@ -289,7 +289,7 @@ class Updater {
     $methods = get_class_methods($this->updateClassName);
     foreach ($methods as $method_name) {
       $reflectionMethod = new \ReflectionMethod($this->updateClassName, $method_name);
-      $annotations = $this->annotationsReader->getMethodAnnotation($reflectionMethod, 'Acquia\Blt\Annotations\Update');
+      $annotations = $this->annotationsReader->getMethodAnnotation($reflectionMethod, 'Crasx\Blt\Annotations\Update');
       if ($annotations) {
         $update_methods[$method_name] = $annotations;
       }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Drupal;
+namespace Crasx\Blt\Robo\Commands\Drupal;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Robo\Exception\TaskException;
 
 /**
@@ -156,7 +156,7 @@ class SyncCommand extends BltTasks {
    * @aliases dsb drupal:sync:db sync:db
    * @validateDrushConfig
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function syncDb() {
     $local_alias = '@' . $this->getConfigValue('drush.aliases.local');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo;
+namespace Crasx\Blt\Robo;
 
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Command\Command;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * The main console application.
  *
- * @package Acquia\Blt\Robo
+ * @package Crasx\Blt\Robo
  */
 class Application extends ConsoleApplication {
 
@@ -27,7 +27,7 @@ class Application extends ConsoleApplication {
    *
    * @{inheritdoc}
    */
-  protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output) {
+  protected function doRunCommand(Command $command, InputInterface $input, OutputInterface $output): int {
     $exit_code = parent::doRunCommand($command, $input, $output);
 
     // If we disabled a command, do not consider it a failure.

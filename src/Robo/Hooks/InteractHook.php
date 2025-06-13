@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Robo\Hooks;
+namespace Crasx\Blt\Robo\Hooks;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
-use Acquia\Blt\Robo\Wizards\SetupWizard;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\Wizards\SetupWizard;
 use Consolidation\AnnotatedCommand\AnnotationData;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,7 +20,7 @@ class InteractHook extends BltTasks {
   /**
    * Sets $this->input.
    */
-  public function setInput(InputInterface $input) {
+  public function setInput(InputInterface $input): void {
     $this->input = $input;
   }
 
@@ -41,7 +41,7 @@ class InteractHook extends BltTasks {
     OutputInterface $output,
     AnnotationData $annotationData,
   ) {
-    /** @var \Acquia\Blt\Robo\Wizards\SetupWizard $setup_wizard */
+    /** @var \Crasx\Blt\Robo\Wizards\SetupWizard $setup_wizard */
     $setup_wizard = $this->getContainer()->get(SetupWizard::class);
     $setup_wizard->wizardGenerateSettingsFiles();
   }
@@ -56,7 +56,7 @@ class InteractHook extends BltTasks {
     OutputInterface $output,
     AnnotationData $annotationData,
   ) {
-    /** @var \Acquia\Blt\Robo\Wizards\SetupWizard $setup_wizard */
+    /** @var \Crasx\Blt\Robo\Wizards\SetupWizard $setup_wizard */
     $setup_wizard = $this->getContainer()->get(SetupWizard::class);
     $setup_wizard->wizardInstallDrupal();
   }

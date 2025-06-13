@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Config;
+namespace Crasx\Blt\Robo\Config;
 
 use Grasmash\YamlExpander\YamlExpander;
 use Psr\Log\NullLogger;

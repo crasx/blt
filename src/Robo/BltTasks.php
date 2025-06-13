@@ -1,15 +1,15 @@
 <?php
 
-namespace Acquia\Blt\Robo;
+namespace Crasx\Blt\Robo;
 
-use Acquia\Blt\Robo\Common\ArrayManipulator;
-use Acquia\Blt\Robo\Common\IO;
-use Acquia\Blt\Robo\Config\ConfigAwareTrait;
-use Acquia\Blt\Robo\Config\ConfigInitializer;
-use Acquia\Blt\Robo\Exceptions\BltException;
-use Acquia\Blt\Robo\Inspector\InspectorAwareInterface;
-use Acquia\Blt\Robo\Inspector\InspectorAwareTrait;
-use Acquia\Blt\Robo\Tasks\LoadTasks;
+use Crasx\Blt\Robo\Common\ArrayManipulator;
+use Crasx\Blt\Robo\Common\IO;
+use Crasx\Blt\Robo\Config\ConfigAwareTrait;
+use Crasx\Blt\Robo\Config\ConfigInitializer;
+use Crasx\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\Inspector\InspectorAwareInterface;
+use Crasx\Blt\Robo\Inspector\InspectorAwareTrait;
+use Crasx\Blt\Robo\Tasks\LoadTasks;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
 use Psr\Log\LoggerAwareInterface;
@@ -50,7 +50,7 @@ class BltTasks implements ConfigAwareInterface, InspectorAwareInterface, LoggerA
    * @param array $commands
    *   An array of Symfony commands to invoke, e.g., 'tests:behat:run'.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function invokeCommands(array $commands) {
     foreach ($commands as $key => $value) {
@@ -74,13 +74,13 @@ class BltTasks implements ConfigAwareInterface, InspectorAwareInterface, LoggerA
    * @param array $args
    *   An array of arguments to pass to the command.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function invokeCommand($command_name, array $args = []) {
     $this->invokeDepth++;
 
     if (!$this->isCommandDisabled($command_name)) {
-      /** @var \Acquia\Blt\Robo\Application $application */
+      /** @var \Crasx\Blt\Robo\Application $application */
       $application = $this->getContainer()->get('application');
       $command = $application->find($command_name);
 
@@ -118,10 +118,10 @@ class BltTasks implements ConfigAwareInterface, InspectorAwareInterface, LoggerA
    * @param string $namespace
    *   Top-level namespace to run commands.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function invokeNamespace(string $namespace) {
-    /** @var \Acquia\Blt\Robo\Application $application */
+    /** @var \Crasx\Blt\Robo\Application $application */
     $application = $this->getContainer()->get('application');
     $commands = $application->all($namespace);
     $namespace_commands = [];
@@ -178,7 +178,7 @@ class BltTasks implements ConfigAwareInterface, InspectorAwareInterface, LoggerA
    * @return int
    *   Int.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function invokeHook($hook) {
     if ($this->getConfig()->has("command-hooks.$hook.command")
@@ -216,7 +216,7 @@ class BltTasks implements ConfigAwareInterface, InspectorAwareInterface, LoggerA
    *   Indicates whether commands should be run in parallel or sequentially.
    *   Defaults to FALSE.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function executeCommandAgainstFilesets(array $filesets, $command, $parallel = FALSE) {
     $passed = TRUE;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Tests;
+namespace Crasx\Blt\Robo\Commands\Tests;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "tests" namespace.
@@ -14,7 +14,7 @@ class TestsAllCommand extends BltTasks {
    *
    * @command tests
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function tests() {
     return $this->invokeNamespace('tests');

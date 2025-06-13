@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Drupal;
+namespace Crasx\Blt\Robo\Commands\Drupal;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -18,7 +18,7 @@ class ConfigCommand extends BltTasks {
    * @aliases du setup:update
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function update(): void {
     $task = $this->taskDrush()
@@ -145,7 +145,7 @@ class ConfigCommand extends BltTasks {
   /**
    * Checks whether core config is overridden.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    */
   protected function checkConfigOverrides(): void {
@@ -185,7 +185,7 @@ class ConfigCommand extends BltTasks {
    * @command drupal:deploy:hook
    *
    * @throws \Robo\Exception\TaskException
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function deployHook(): void {
     $task = $this->taskDrush()

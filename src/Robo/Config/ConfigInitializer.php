@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Config;
+namespace Crasx\Blt\Robo\Config;
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Crasx\Blt\Robo\Common\EnvironmentDetector;
 use Consolidation\Config\Loader\YamlConfigLoader;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -14,7 +14,7 @@ class ConfigInitializer {
   /**
    * Config.
    *
-   * @var \Acquia\Blt\Robo\Config\DefaultConfig
+   * @var \Crasx\Blt\Robo\Config\DefaultConfig
    */
   protected $config;
   /**
@@ -32,7 +32,7 @@ class ConfigInitializer {
   /**
    * Processor.
    *
-   * @var \Acquia\Blt\Robo\Config\YamlConfigProcessor
+   * @var \Crasx\Blt\Robo\Config\YamlConfigProcessor
    */
   protected $processor;
 
@@ -122,7 +122,7 @@ class ConfigInitializer {
   /**
    * Initialize.
    *
-   * @return \Acquia\Blt\Robo\Config\DefaultConfig
+   * @return \Crasx\Blt\Robo\Config\DefaultConfig
    *   Config.
    */
   public function initialize() {

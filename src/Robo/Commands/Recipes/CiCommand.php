@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Recipes;
+namespace Crasx\Blt\Robo\Commands\Recipes;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Robo\Contract\VerbosityThresholdInterface;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Inspector;
+namespace Crasx\Blt\Robo\Inspector;
 
 /**
  * Requires setter for inspector.
@@ -10,7 +10,7 @@ interface InspectorAwareInterface {
   /**
    * Sets $this->inspector.
    *
-   * @param \Acquia\Blt\Robo\Inspector\Inspector $inspector
+   * @param \Crasx\Blt\Robo\Inspector\Inspector $inspector
    *   The inspector.
    *
    * @return $this

@@ -1,15 +1,15 @@
 <?php
 
-namespace Acquia\Blt\Robo\Inspector;
+namespace Crasx\Blt\Robo\Inspector;
 
-use Acquia\Blt\Robo\Blt;
-use Acquia\Blt\Robo\Common\ArrayManipulator;
-use Acquia\Blt\Robo\Common\Executor;
-use Acquia\Blt\Robo\Common\IO;
-use Acquia\Blt\Robo\Config\BltConfig;
-use Acquia\Blt\Robo\Config\ConfigAwareTrait;
-use Acquia\Blt\Robo\Config\YamlConfigProcessor;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\Blt;
+use Crasx\Blt\Robo\Common\ArrayManipulator;
+use Crasx\Blt\Robo\Common\Executor;
+use Crasx\Blt\Robo\Common\IO;
+use Crasx\Blt\Robo\Config\BltConfig;
+use Crasx\Blt\Robo\Config\ConfigAwareTrait;
+use Crasx\Blt\Robo\Config\YamlConfigProcessor;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Consolidation\Config\Loader\YamlConfigLoader;
 use League\Container\ContainerAwareInterface;
 use League\Container\ContainerAwareTrait;
@@ -23,7 +23,7 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Inspects various details about the current project.
  *
- * @package Acquia\Blt\Robo\Common
+ * @package Crasx\Blt\Robo\Common
  */
 class Inspector implements BuilderAwareInterface, ConfigAwareInterface, ContainerAwareInterface, LoggerAwareInterface {
 
@@ -36,7 +36,7 @@ class Inspector implements BuilderAwareInterface, ConfigAwareInterface, Containe
   /**
    * Process executor.
    *
-   * @var \Acquia\Blt\Robo\Common\Executor
+   * @var \Crasx\Blt\Robo\Common\Executor
    */
   protected $executor;
 
@@ -85,7 +85,7 @@ class Inspector implements BuilderAwareInterface, ConfigAwareInterface, Containe
   /**
    * The constructor.
    *
-   * @param \Acquia\Blt\Robo\Common\Executor $executor
+   * @param \Crasx\Blt\Robo\Common\Executor $executor
    *   Process executor.
    */
   public function __construct(Executor $executor) {
@@ -283,6 +283,9 @@ class Inspector implements BuilderAwareInterface, ConfigAwareInterface, Containe
 
       case 'sqlite':
         return $this->isSqliteAvailable();
+
+      default:
+        return false;
     }
 
   }
@@ -480,7 +483,7 @@ class Inspector implements BuilderAwareInterface, ConfigAwareInterface, Containe
   /**
    * Gets the local behat configuration defined in local.yml.
    *
-   * @return \Acquia\Blt\Robo\Config\BltConfig
+   * @return \Crasx\Blt\Robo\Config\BltConfig
    *   The local Behat configuration.
    */
   public function getLocalBehatConfig() {
@@ -583,7 +586,7 @@ class Inspector implements BuilderAwareInterface, ConfigAwareInterface, Containe
   /**
    * Throws an exception if the minimum PHP version is not met.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function warnIfPhpOutdated() {
     $minimum_php_version = 7;

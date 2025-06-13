@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Drupal;
+namespace Crasx\Blt\Robo\Commands\Drupal;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\RandomString;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\RandomString;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Robo\Contract\VerbosityThresholdInterface;
 use Robo\Result;
 use Symfony\Component\Finder\Finder;
@@ -26,7 +26,7 @@ class InstallCommand extends BltTasks {
    * @validateDrushConfig
    * @validateDocrootIsPresent
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    *
    * @todo Add a @validateSettingsFilesArePresent
    */
@@ -46,7 +46,7 @@ class InstallCommand extends BltTasks {
    * For directories (755) and files (644) in docroot/sites/[site] (excluding
    * docroot/sites/[site]/files).
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function setSitePermissions() {
     $taskFilesystemStack = $this->taskFilesystemStack();
@@ -88,7 +88,7 @@ class InstallCommand extends BltTasks {
    * @return \Robo\Result
    *   The `drush site-install` command result.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    * @throws \Robo\Exception\TaskException
    */
   public function install(): Result {

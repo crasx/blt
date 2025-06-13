@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Robo\Doctor;
+namespace Crasx\Blt\Robo\Doctor;
 
 /**
  * BLT doctor checks for PHP.

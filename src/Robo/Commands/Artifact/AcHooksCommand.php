@@ -1,11 +1,11 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Artifact;
+namespace Crasx\Blt\Robo\Commands\Artifact;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
-use Acquia\Blt\Robo\Common\RandomString;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\EnvironmentDetector;
+use Crasx\Blt\Robo\Common\RandomString;
+use Crasx\Blt\Robo\Exceptions\BltException;
 
 /**
  * Defines commands in the "artifact:ac-hooks" namespace.
@@ -33,7 +33,7 @@ class AcHooksCommand extends BltTasks {
    *
    * @command artifact:ac-hooks:post-code-deploy
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function postCodeDeploy($site, $target_env, $source_branch, $deployed_tag, $repo_url, $repo_type) {
     if (!EnvironmentDetector::isAcsfEnv($site, $target_env)) {
@@ -62,7 +62,7 @@ class AcHooksCommand extends BltTasks {
    *
    * @command artifact:ac-hooks:post-code-update
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function postCodeUpdate($site, $target_env, $source_branch, $deployed_tag, $repo_url, $repo_type) {
     if (!EnvironmentDetector::isAcsfEnv($site, $target_env)) {
@@ -95,7 +95,7 @@ class AcHooksCommand extends BltTasks {
    *
    * @command artifact:ac-hooks:post-db-copy
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function postDbCopy($site, $target_env, $db_name, $source_env) {
     // Only run updates for ODEs, where DBs are copied automatically after new
@@ -169,7 +169,7 @@ class AcHooksCommand extends BltTasks {
    * @param string $target_env
    *   Target env.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function updateCloudSites($target_env) {
     $this->say("Running updates for environment: $target_env");

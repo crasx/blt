@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Doctor;
+namespace Crasx\Blt\Robo\Doctor;
 
-use Acquia\Blt\Robo\Common\Executor;
-use Acquia\Blt\Robo\Inspector\Inspector;
+use Crasx\Blt\Robo\Common\Executor;
+use Crasx\Blt\Robo\Inspector\Inspector;
 use Robo\Config\Config;
 
 /**
@@ -30,9 +30,9 @@ class ComposerCheck extends DoctorCheck {
    *
    * @param \Robo\Config\Config $config
    *   Robo config.
-   * @param \Acquia\Blt\Robo\Inspector\Inspector $inspector
+   * @param \Crasx\Blt\Robo\Inspector\Inspector $inspector
    *   BLT inspector.
-   * @param \Acquia\Blt\Robo\Common\Executor $executor
+   * @param \Crasx\Blt\Robo\Common\Executor $executor
    *   BLT executor.
    * @param array $drush_status
    *   Drush status.

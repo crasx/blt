@@ -1,15 +1,15 @@
 <?php
 
-namespace Acquia\Blt\Robo;
+namespace Crasx\Blt\Robo;
 
-use Acquia\Blt\Robo\Common\Executor;
-use Acquia\Blt\Robo\Common\IO;
-use Acquia\Blt\Robo\Filesets\FilesetManager;
-use Acquia\Blt\Robo\Inspector\Inspector;
-use Acquia\Blt\Robo\Inspector\InspectorAwareInterface;
-use Acquia\Blt\Robo\Log\BltLogStyle;
-use Acquia\Blt\Robo\Wizards\SetupWizard;
-use Acquia\Blt\Update\Updater;
+use Crasx\Blt\Robo\Common\Executor;
+use Crasx\Blt\Robo\Common\IO;
+use Crasx\Blt\Robo\Filesets\FilesetManager;
+use Crasx\Blt\Robo\Inspector\Inspector;
+use Crasx\Blt\Robo\Inspector\InspectorAwareInterface;
+use Crasx\Blt\Robo\Log\BltLogStyle;
+use Crasx\Blt\Robo\Wizards\SetupWizard;
+use Crasx\Blt\Update\Updater;
 use Composer\Autoload\ClassLoader;
 use Composer\InstalledVersions;
 use Consolidation\AnnotatedCommand\CommandFileDiscovery;
@@ -115,11 +115,11 @@ class Blt implements ContainerAwareInterface, LoggerAwareInterface {
   private function addBuiltInCommandsAndHooks() {
     $commands = $this->getCommands([
       'path' => __DIR__ . '/Commands',
-      'namespace' => 'Acquia\Blt\Robo\Commands',
+      'namespace' => 'Crasx\Blt\Robo\Commands',
     ]);
     $hooks = $this->getHooks([
       'path' => __DIR__ . '/Hooks',
-      'namespace' => 'Acquia\Blt\Robo\Hooks',
+      'namespace' => 'Crasx\Blt\Robo\Hooks',
     ]);
     $this->commands = array_merge($commands, $hooks);
   }
@@ -167,7 +167,7 @@ class Blt implements ContainerAwareInterface, LoggerAwareInterface {
   /**
    * Add any global arguments or options that apply to all commands.
    *
-   * @param \Acquia\Blt\Robo\Application $app
+   * @param \Crasx\Blt\Robo\Application $app
    *   The Symfony application.
    */
   private function addDefaultArgumentsAndOptions(Application $app) {
@@ -197,7 +197,7 @@ class Blt implements ContainerAwareInterface, LoggerAwareInterface {
     $builder = new CollectionBuilder($blt_tasks);
     $blt_tasks->setBuilder($builder);
     $container->add('builder', $builder);
-    $updater = new Updater('Acquia\Blt\Update\Updates', $this->getConfig()->get('repo.root'));
+    $updater = new Updater('Crasx\Blt\Update\Updates', $this->getConfig()->get('repo.root'));
 
     if (self::usingLegacyContainer()) {
       // Logic for league/container 3.x.

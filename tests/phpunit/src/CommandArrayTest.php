@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
-use Acquia\Blt\Robo\Common\StringManipulator;
+use Crasx\Blt\Robo\Common\StringManipulator;
 
 /**
  * Tests String to Array Conversion for Commands.

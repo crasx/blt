@@ -1,9 +1,9 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Blt;
+namespace Crasx\Blt\Robo\Commands\Blt;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Exceptions\BltException;
 
 /**
  * Defines commands in the 'config:*' namespace.
@@ -20,7 +20,7 @@ class ConfigCommand extends BltTasks {
    *
    * @aliases bcg config:get
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function getValue($key) {
     if (!$this->getConfig()->has($key)) {

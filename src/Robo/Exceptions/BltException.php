@@ -1,11 +1,11 @@
 <?php
 
-namespace Acquia\Blt\Robo\Exceptions;
+namespace Crasx\Blt\Robo\Exceptions;
 
 /**
  * Custom reporting and error handling for exceptions.
  *
- * @package Acquia\Blt\Robo\Exceptions
+ * @package Crasx\Blt\Robo\Exceptions
  */
 class BltException extends \Exception {
 

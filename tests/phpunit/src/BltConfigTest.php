@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
-use Acquia\Blt\Robo\Commands\Blt\ConfigCommand;
+use Crasx\Blt\Robo\Commands\Blt\ConfigCommand;
 use Robo\Config\Config;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Config;
+namespace Crasx\Blt\Robo\Config;
 
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Symfony\Component\Finder\Finder;
 
 /**

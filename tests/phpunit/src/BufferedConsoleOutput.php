@@ -1,6 +1,6 @@
 <?php
 
-namespace Acquia\Blt\Tests;
+namespace Crasx\Blt\Tests;
 
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
  * It allows us to capture output in a buffer for PHPUnit assertions and
  * simultaneously print output to the console for debugging.
  *
- * @package Acquia\Blt\Tests
+ * @package Crasx\Blt\Tests
  * @see \Symfony\Component\Console\Output\BufferedOutput
  * @see \Symfony\Component\Console\Output\ConsoleOutput
  */

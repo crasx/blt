@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Tests;
+namespace Crasx\Blt\Robo\Commands\Tests;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "tests" namespace.

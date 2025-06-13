@@ -1,21 +1,21 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Blt;
+namespace Crasx\Blt\Robo\Commands\Blt;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Doctor\AcsfCheck;
-use Acquia\Blt\Robo\Doctor\ComposerCheck;
-use Acquia\Blt\Robo\Doctor\ConfigCheck;
-use Acquia\Blt\Robo\Doctor\DbCheck;
-use Acquia\Blt\Robo\Doctor\DrupalCheck;
-use Acquia\Blt\Robo\Doctor\DrushCheck;
-use Acquia\Blt\Robo\Doctor\FileSystemCheck;
-use Acquia\Blt\Robo\Doctor\NodeCheck;
-use Acquia\Blt\Robo\Doctor\PhpCheck;
-use Acquia\Blt\Robo\Doctor\SettingsFilesCheck;
-use Acquia\Blt\Robo\Doctor\SimpleSamlPhpCheck;
-use Acquia\Blt\Robo\Doctor\WebUriCheck;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Doctor\AcsfCheck;
+use Crasx\Blt\Robo\Doctor\ComposerCheck;
+use Crasx\Blt\Robo\Doctor\ConfigCheck;
+use Crasx\Blt\Robo\Doctor\DbCheck;
+use Crasx\Blt\Robo\Doctor\DrupalCheck;
+use Crasx\Blt\Robo\Doctor\DrushCheck;
+use Crasx\Blt\Robo\Doctor\FileSystemCheck;
+use Crasx\Blt\Robo\Doctor\NodeCheck;
+use Crasx\Blt\Robo\Doctor\PhpCheck;
+use Crasx\Blt\Robo\Doctor\SettingsFilesCheck;
+use Crasx\Blt\Robo\Doctor\SimpleSamlPhpCheck;
+use Crasx\Blt\Robo\Doctor\WebUriCheck;
+use Crasx\Blt\Robo\Exceptions\BltException;
 
 /**
  * Defines doctor command.
@@ -52,7 +52,7 @@ class DoctorCommand extends BltTasks {
    *
    * @launchWebServer
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function doctor() {
     $this->doctorCheck();
@@ -65,7 +65,7 @@ class DoctorCommand extends BltTasks {
    *
    * @hidden
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function doctorCheck() {
     $status = $this->getInspector()->getStatus();
@@ -88,7 +88,7 @@ class DoctorCommand extends BltTasks {
 
     $success = TRUE;
     foreach ($checks as $class) {
-      /** @var \Acquia\Blt\Robo\Doctor\DoctorCheck $object */
+      /** @var \Crasx\Blt\Robo\Doctor\DoctorCheck $object */
       $object = new $class($this->getConfig(), $this->getInspector(), $this->getContainer()->get('executor'), $status);
       $object->performAllChecks();
       $this->problems = array_merge($this->problems, $object->getProblems());

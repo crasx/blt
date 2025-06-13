@@ -1,11 +1,11 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Source;
+namespace Crasx\Blt\Robo\Commands\Source;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\RandomString;
-use Acquia\Blt\Robo\Config\ConfigInitializer;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\RandomString;
+use Crasx\Blt\Robo\Config\ConfigInitializer;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Acquia\Drupal\RecommendedSettings\Drush\Commands\SettingsDrushCommands;
 use Robo\Contract\VerbosityThresholdInterface;
 use Robo\ResultData;
@@ -24,7 +24,7 @@ class SettingsCommand extends BltTasks {
    *
    * @aliases blt:init:settings bis settings setup:settings
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function generateSiteConfigFiles() {
     $this->generateLocalConfigFile();
@@ -121,7 +121,7 @@ class SettingsCommand extends BltTasks {
    * @param string $hook
    *   The git hook to install, e.g., 'pre-commit'.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function installGitHook($hook) {
     $fs = new Filesystem();
@@ -173,7 +173,7 @@ class SettingsCommand extends BltTasks {
    * @return int
    *   A CLI exit code.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function hashSalt() {
     $hash_salt_file = $this->getConfigValue('repo.root') . '/salt.txt';
@@ -202,7 +202,7 @@ class SettingsCommand extends BltTasks {
    * @command drupal:deployment-identifier:init
    * @aliases ddii
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function createDeployId($options = ['id' => InputOption::VALUE_REQUIRED]) {
     if (!$options['id']) {
@@ -224,7 +224,7 @@ class SettingsCommand extends BltTasks {
   /**
    * Generates local.blt.yml from example.local.blt.yml.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   private function generateLocalConfigFile() {
     $localConfigFile = $this->getConfigValue('blt.config-files.local');

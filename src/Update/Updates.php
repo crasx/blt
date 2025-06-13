@@ -1,11 +1,11 @@
 <?php
 
-namespace Acquia\Blt\Update;
+namespace Crasx\Blt\Update;
 
 // The following line is required for annotations to work.
 // phpcs:ignore
-use Acquia\Blt\Annotations\Update;
-use Acquia\Blt\Robo\Common\ArrayManipulator;
+use Crasx\Blt\Annotations\Update;
+use Crasx\Blt\Robo\Common\ArrayManipulator;
 
 /**
  * Defines scripted updates for specific version deltas of BLT.
@@ -15,14 +15,14 @@ class Updates {
   /**
    * Updater var.
    *
-   * @var \Acquia\Blt\Update\Updater
+   * @var \Crasx\Blt\Update\Updater
    */
   protected $updater;
 
   /**
    * Updates constructor.
    *
-   * @param \Acquia\Blt\Update\Updater $updater
+   * @param \Crasx\Blt\Update\Updater $updater
    *   Updater.
    */
   public function __construct(Updater $updater) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Validate;
+namespace Crasx\Blt\Robo\Commands\Validate;
 
-use Acquia\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\BltTasks;
 
 /**
  * Defines commands in the "validate*" namespace.
@@ -15,7 +15,7 @@ class ValidateAllCommand extends BltTasks {
    * @command validate
    * @hidden
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   public function all() {
     return $this->invokeNamespace('validate');

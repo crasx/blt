@@ -1,10 +1,10 @@
 <?php
 
-namespace Acquia\Blt\Robo\Commands\Tests;
+namespace Crasx\Blt\Robo\Commands\Tests;
 
-use Acquia\Blt\Robo\BltTasks;
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
-use Acquia\Blt\Robo\Exceptions\BltException;
+use Crasx\Blt\Robo\BltTasks;
+use Crasx\Blt\Robo\Common\EnvironmentDetector;
+use Crasx\Blt\Robo\Exceptions\BltException;
 use Robo\Contract\VerbosityThresholdInterface;
 
 /**
@@ -126,7 +126,7 @@ class TestsCommandBase extends BltTasks {
    * @return null|string
    *   NULL if Chrome could not be found.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    *   Throws exception if google-chrome cannot be found.
    */
   protected function findChrome() {
@@ -152,7 +152,7 @@ class TestsCommandBase extends BltTasks {
    * @param string $bin
    *   Absolute file path to the google chrome bin.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    *   Throws exception if minimum version is not met.
    */
   protected function checkChromeVersion($bin) {
@@ -198,7 +198,7 @@ class TestsCommandBase extends BltTasks {
    * @return null|string
    *   NULL if Chrome could not be found.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    *   Throws exception if chromedriver cannot be found.
    */
   protected function findChromeDriver() {
@@ -217,7 +217,7 @@ class TestsCommandBase extends BltTasks {
   /**
    * Launches selenium server and waits for it to become available.
    *
-   * @throws \Acquia\Blt\Robo\Exceptions\BltException
+   * @throws \Crasx\Blt\Robo\Exceptions\BltException
    */
   protected function launchSelenium() {
     $this->createSeleniumLogs();
@@ -228,7 +228,7 @@ class TestsCommandBase extends BltTasks {
       throw new BltException("Could not find Selenium. Install it via `composer require se/selenium-server-standalone`.");
     }
     $log_file = $this->getConfigValue('repo.root') . '/tmp/selenium.log';
-    /** @var Acquia\Blt\Robo\Common\Executor $executor */
+    /** @var Crasx\Blt\Robo\Common\Executor $executor */
     $executor = $this->getContainer()->get('executor');
     $result = $executor
       ->executeShell("$selenium_bin -port {$this->seleniumPort} -log {$this->seleniumLogFile}  > $log_file 2>&1")

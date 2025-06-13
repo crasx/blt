@@ -1,14 +1,14 @@
 <?php
 
-namespace Acquia\Blt\Robo\Doctor;
+namespace Crasx\Blt\Robo\Doctor;
 
-use Acquia\Blt\Robo\Common\Executor;
-use Acquia\Blt\Robo\Common\ExecutorAwareInterface;
-use Acquia\Blt\Robo\Common\ExecutorAwareTrait;
-use Acquia\Blt\Robo\Config\ConfigAwareTrait;
-use Acquia\Blt\Robo\Inspector\Inspector;
-use Acquia\Blt\Robo\Inspector\InspectorAwareInterface;
-use Acquia\Blt\Robo\Inspector\InspectorAwareTrait;
+use Crasx\Blt\Robo\Common\Executor;
+use Crasx\Blt\Robo\Common\ExecutorAwareInterface;
+use Crasx\Blt\Robo\Common\ExecutorAwareTrait;
+use Crasx\Blt\Robo\Config\ConfigAwareTrait;
+use Crasx\Blt\Robo\Inspector\Inspector;
+use Crasx\Blt\Robo\Inspector\InspectorAwareInterface;
+use Crasx\Blt\Robo\Inspector\InspectorAwareTrait;
 use Robo\Config\Config;
 use Robo\Contract\ConfigAwareInterface;
 
