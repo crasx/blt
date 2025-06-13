@@ -31,7 +31,7 @@ function find_repo_root() {
     dirname(__DIR__) . '/',
     dirname(__DIR__, 3) . '/',
   ];
-  $blt_files = ['vendor/acquia/blt', 'vendor/autoload.php'];
+  $blt_files = ['vendor/crasx/blt', 'vendor/autoload.php'];
   // Check for PWD - some local environments will not have this key.
   if (getenv('PWD')) {
     array_unshift($possible_repo_roots, getenv('PWD'));
