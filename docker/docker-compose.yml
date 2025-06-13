@@ -1,0 +1,12 @@
+services:
+  drupal:
+    image: "${IMAGE}:${TAG}"
+    build:
+      context: "${PWD}"
+      dockerfile: "${DOCKERFILE}"
+
+      args:
+        NEW_RELIC_AGENT_VERSION: "${NEW_RELIC_AGENT_VERSION}"
+        NEW_RELIC_APP_NAME: "${NEW_RELIC_APP_NAME}"
+        NEW_RELIC_LICENSE_KEY: "${NEW_RELIC_LICENSE_KEY}"
+        PHP_VERSION: "${PHP_VERSION}"

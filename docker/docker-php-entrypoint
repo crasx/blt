@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# @see https://github.com/docker-library/php/blob/master/docker-php-entrypoint
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- php "$@"
+fi
+
+if [ "$1" = "apache2-foreground" ]; then
+#  echo "Setting permissions"
+#  # Todo: There are probably ways to make this faster.
+#  find . -type d | xargs --max-args=1 --max-procs=10  chmod -f 750 || true
+#  find . -type f -not -path "./vendor/bin/*" | xargs --max-args=1 --max-procs=10  chmod -f 640 || true
+#  find . | xargs --max-args=1 --max-procs=50  chown root:www-data || true
+
+
+  # We are running apache, make sure directory exists
+  if [ ! -d /mnt/sites/default/files ]; then
+    echo "Creating files directory"
+    mkdir -p /mnt/sites/default/files
+    chown www-data:www-data /mnt/sites/default/files -r
+  fi
+  echo "Symlinking files directories to /mnt"
+  ln -s /mnt/sites/default/files /opt/drupal/web/sites/default/files
+
+  echo "Starting apache..."
+  set -e
+fi
+
+exec "$@"

@@ -1,0 +1,36 @@
+{{- if .Values.cron.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}-cron
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+spec:
+  schedule: "{{ .Values.cron.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          {{- with .Values.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 16 }}
+          {{- end }}
+          containers:
+            - name: drupal
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              command: ["drush"]
+              args: ["core-cron"]
+              imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+              volumeMounts:
+                - name: drupal-persistent-storage
+                  mountPath: /mnt
+              env: {{ include "drupal-k8s.containerEnvs" . | nindent 16 }}
+
+          volumes:
+            - name: drupal-persistent-storage
+              persistentVolumeClaim:
+                claimName: {{ include "drupal-k8s.drupal-pvc-name" . }}
+          restartPolicy: Never
+
+  concurrencyPolicy: Forbid
+{{- end }}

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}-liveness-endpoint
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+data:
+  script: |
+    {{ .Values.livenessProbe.script }}

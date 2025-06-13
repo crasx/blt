@@ -1,0 +1,14 @@
+{{- if and .Values.drupal.pvc.enabled  (not .Values.drupal.pvc.existingClaim) -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}-drupal-pvc
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+spec:
+  storageClassName: {{ .Values.drupal.pvc.storageClass }}
+  accessModes: {{ .Values.drupal.pvc.accessModes }}
+  resources:
+    requests:
+      storage: {{ .Values.drupal.pvc.size }}
+{{- end }}

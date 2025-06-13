@@ -1,0 +1,150 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "drupal-k8s.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "drupal-k8s.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "drupal-k8s.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: permissions-init
+          securityContext:
+            runAsUser: 0
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command:
+            - /bin/sh
+            - -c
+            - chown www-data:www-data /mnt
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: drupal-persistent-storage
+              mountPath: /mnt
+        - name: drupal-init
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: {{ range .Values.initCommand }}
+            - {{ . | quote }}{{ end }}
+          args: {{ range .Values.initCommandArgs }}
+            - {{ . | quote }}{{ end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: drupal-persistent-storage
+              mountPath: /mnt
+          env: {{ include "drupal-k8s.containerEnvs" . | nindent 12 }}
+
+      containers:
+        - name: drupal
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: drupal-persistent-storage
+              mountPath: /mnt
+            - name: apache-config
+              mountPath: "/etc/apache2/sites-available/000-default.conf"
+              subPath: virtualhost.conf
+            - name: drupal-settings
+              mountPath: "/opt/drupal-k8s/k8s.settings.php"
+              subPath: settings.php
+
+
+            {{- if .Values.shield.enabled }}
+            - name: apache-config
+              mountPath: "/etc/apache2/.htpasswd"
+              subPath: .htpasswd
+            {{- end }}
+            - name: apache-config
+              mountPath: "/etc/apache2/ports.conf"
+              subPath: ports.conf
+          {{ if .Values.livenessProbe.enabled }}
+          livenessProbe:
+            {{- include "drupal-k8s.probe" . | nindent 12 }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{ if .Values.readinessProbe.enabled }}
+          readinessProbe:
+            {{- include "drupal-k8s.probe" . | nindent 12 }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env: {{ include "drupal-k8s.containerEnvs" . | nindent 12 }}
+      {{- if .Values.memcached.enabled }}
+        - name: memcache
+          image: memcached
+          ports:
+            - containerPort: 11211
+      {{- end }}
+      {{- if .Values.varnish.enabled }}
+        - name: varnish
+          image: varnish:6.6
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: varnish-config
+              mountPath: /etc/varnish/default.vcl
+              subPath: config.vcl
+      {{- end }}
+      {{- if .Values.newrelic.enabled }}
+        - name: newrelic-php-daemon
+          image: newrelic/php-daemon
+      {{- end }}
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: drupal-persistent-storage
+          persistentVolumeClaim:
+            claimName: {{ include "drupal-k8s.drupal-pvc-name" . }}
+        - name: apache-config
+          configMap:
+            name: {{ include "drupal-k8s.fullname" . }}-apache-config
+        - name: drupal-settings
+          configMap:
+            name: {{ include "drupal-k8s.fullname" . }}-drupal-config
+      {{- if .Values.varnish.enabled }}
+        - name: varnish-config
+          configMap:
+            name: {{ include "drupal-k8s.fullname" . }}-varnish-config
+      {{- end }}

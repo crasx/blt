@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      {{ if .Values.varnish.enabled }}
+      targetPort: 80
+      {{ else }}
+      targetPort: 8080
+      {{ end }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "drupal-k8s.selectorLabels" . | nindent 4 }}

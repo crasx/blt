@@ -1,0 +1,11 @@
+{{ if .Values.varnish.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "drupal-k8s.fullname" . }}-varnish-config
+  labels:
+    {{- include "drupal-k8s.labels" . | nindent 4 }}
+data:
+  config.vcl: |-
+{{ .Files.Get .Values.varnish.configFile | indent 6 }}
+{{- end }}

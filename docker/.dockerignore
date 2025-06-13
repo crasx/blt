@@ -1,0 +1,29 @@
+# Directories specific to this template
+web/libraries
+web/modules/contrib
+web/profiles/contrib
+web/themes/contrib
+deploy/docker/Dockerfile
+
+web/core
+web/sites/default/settings/local.settings.php
+web/sites/*/services*.yml
+web/sites/*/files
+web/sites/*/private
+web/sites/simpletest
+
+# Visual regression testing.
+backups
+backstop_data
+.lando
+.vagrant
+**/node_modules/
+**/dist
+.git
+npm-debug.log
+#.env
+
+# Ignore vendor, except for dockerfile
+vendor/
+!vendor/crasx/drupal-k8s
+vendor/crasx/drupal-k8s/vendor
